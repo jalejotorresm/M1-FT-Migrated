@@ -8,14 +8,20 @@ function invertirOrden(array) {
     // debera ser devuelto
     // No vale usar el metodo "reverse"
     // [1, 4, 24, 10, 8, 6]
-
-};
+    let inverted = []
+    for (let i=0; i<array.length; i++){
+        if(array[i]>=0 && array[i]<10){
+            inverted.unshift(array[i])
+        }
+    }
+    return inverted
+  };
 
 
 function numeroEnComun(array1, array2) {
     // Entre los dos array's que recibe la funcion por parametro
     // Buscar y retornar el valor en comun entre ellos
-    
+    let
 };
 
 
