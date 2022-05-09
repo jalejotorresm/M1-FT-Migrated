@@ -43,7 +43,20 @@ function sumaDeArrays(array) {
     // Sumando los elementos de cada array que contenga dos elementos, y devolviendo la suma del mismo
     // OJO: Si el elemento dentro del array que ingresa por prop, ya es de tipo number, deben devolverlo como tal dentro del array que retornan.
     // Ejemplo: [[1, 3], [10, 20], [4, 5], 2]
-   
+    let newArray = []
+    let sum = 0
+    
+    array.forEach(element=>{
+        if (typeof element === 'object'){
+            for(let i=0; i<array.length; i++){
+                sum += array[i]
+                }
+            newArray.push(sum)
+            }else{
+                newArray.push(element)
+                }
+        })
+    return newArray
 };
 
 
