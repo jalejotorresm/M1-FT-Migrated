@@ -44,18 +44,15 @@ function sumaDeArrays(array) {
     // OJO: Si el elemento dentro del array que ingresa por prop, ya es de tipo number, deben devolverlo como tal dentro del array que retornan.
     // Ejemplo: [[1, 3], [10, 20], [4, 5], 2]
     let newArray = []
-    let sum = 0
     
-    array.forEach(element=>{
-        if (typeof element === 'object'){
-            for(let i=0; i<array.length; i++){
-                sum += array[i]
-                }
+    for(let i=0; i<array.length; i++){
+        if(typeof array[i] === 'object'){
+            let sum = 0
+            array[i].forEach(element => sum += element)
             newArray.push(sum)
-            }else{
-                newArray.push(element)
-                }
-        })
+        }
+        else newArray.push(array[i])
+    }
     return newArray
 };
 
@@ -74,6 +71,14 @@ function elementoMenorYMayor(array) {
     // El Array recibido por props es un array que contienen numeros
     // Tenes que retornar un array
     // Solamente con el elemento menor y mayor del array recibido
+    let newArray = []
+
+    let minElement = Math.min(...array)
+    let maxElement = Math.max(...array)
+
+    newArray.push(minElement, maxElement)
+
+    return newArray
    
 };
 
