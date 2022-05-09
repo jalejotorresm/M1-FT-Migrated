@@ -58,12 +58,23 @@ function sumaDeArrays(array) {
 
 
 function mismoValorMismosElementos(numero, divisor) {
-    // Tiene que devolver un array con la misma cantidad de elementos que el valor del divisor
+// Tiene que devolver un array con la misma cantidad de elementos que el valor del divisor
     // Ejemplo divisor = 3 => [x,x,x] y si es divisor = 4 => [x,x,x,x]
     // vemos que todos los elementos deben tener el mismo valor
     // Siendo el número divisible entre el divisor, de no ser así, debe devolver false
     // es decir Si el resultado de la division no es un entero, deben devolver false
+    let newArray = []
     
+    if(numero%divisor!==0){
+        return false
+        }
+        else{
+            do{
+                let result = numero/divisor
+                newArray.push(result)
+                }while(newArray.length<divisor)
+            }
+    return newArray
 };
 
 
