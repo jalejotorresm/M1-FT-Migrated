@@ -21,7 +21,18 @@ function invertirOrden(array) {
 function numeroEnComun(array1, array2) {
     // Entre los dos array's que recibe la funcion por parametro
     // Buscar y retornar el valor en comun entre ellos
-    let
+    let commonNum
+    array1.forEach(element => {
+        array2.forEach(element2 => {
+            if(element===element2){
+                commonNum = element
+            }else{
+                commonNum = Math.min.apply(null, array1, array2)
+                }
+        })
+        
+    });
+    return commonNum
 };
 
 
