@@ -56,7 +56,7 @@ function crearClaseLibro() {
       // Suponiendo que el libro tiene estas traducciones: [{idioma: 'inglés', editorial: 'Scholastic'}, {idioma: 'castellano', editorial: 'Santillana'}]
       // libro.getAlcance() deberia devolver 2
       // Tu código aca:
-      let newResult = new Set(getTraducciones())
+      let newResult = new Set(this.getTraducciones())
       return newResult.size
     }
   }
