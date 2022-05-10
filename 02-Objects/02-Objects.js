@@ -68,8 +68,34 @@ const printStaff = function (objeto) {
   // de esta forma "The headmaster is Albus Percival Wulfric Brian Dumbledore" 
   // el arreglo debe mantener el orden que posee el staff del objeto.
   // Tu código aca:
+  let staffArray = []
+
+  for (let staffName in hogwarts.staff){
+    staffArray.push("The " + staffName + " is " + hogwarts.staff[staffName].name)
+  }
+
+  return staffArray
  
 };
+
+const hogwarts = {
+  staff: {
+    headmaster: {
+      name: "Albus Percival Wulfric Brian Dumbledore",
+    },
+    keeperOfKeys: {
+      name: "Rubeus Hagrid",
+    },
+    potionsMaster: {
+      name: "Severus Snape",
+    },
+    headOfGryffindor: {
+      name: "Minerva McGonagall",
+    },
+  },
+};
+
+console.log(printStaff(hogwarts))
 
 
 /* **************************************************************************************************************************** */
@@ -100,7 +126,16 @@ var obj = {
 // a no ser que lo hagamos manualmente con el correcto uso de la consola.
 var countProps = function(obj) {
   // Tu código aca:
-  
+  let counter = 0
+
+  for(const key in obj){
+    counter++
+    if(typeof obj[key] === 'object' && !Array.isArray(obj[key])){
+       counter = counter + countProps(obj[key])
+       }
+  }
+
+  return counter
  }
 
  console.log(countProps(obj))
