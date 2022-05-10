@@ -70,8 +70,8 @@ const printStaff = function (objeto) {
   // Tu código aca:
   let staffArray = []
 
-  for (let staffName in hogwarts.staff){
-    staffArray.push("The " + staffName + " is " + hogwarts.staff[staffName].name)
+  for (let staffName in objeto.staff){
+    staffArray.push("The " + staffName + " is " + objeto.staff[staffName].name)
   }
 
   return staffArray
