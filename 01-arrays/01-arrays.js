@@ -27,7 +27,9 @@ function numeroEnComun(array1, array2) {
             if(element===element2){
                 commonNum = element
             }else{
-                commonNum = Math.min.apply(array1, array2)
+                let min1 = Math.min(...array1)
+                let min2 = Math.min(...array2)
+                commonNum = Math.min(min1, min2)
                 }
         })
         
