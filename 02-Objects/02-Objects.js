@@ -42,9 +42,7 @@ function crearClaseLibro() {
       // libro.getTraducciones() debería devolver ['inglés', 'castellano']
       // Tu código aca:
       let array = []
-      for(const idioma in this.traducciones){
-        array.push(this.traducciones.idioma)
-      }
+      this.traducciones.forEach(element => array.push(element.idioma))
       return array
      
  }
