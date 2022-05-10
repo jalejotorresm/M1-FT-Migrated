@@ -23,8 +23,7 @@ function invertirOrden(array) {
 function numeroEnComun(array1, array2) {
     // Entre los dos array's que recibe la funcion por parametro
     // Buscar y retornar el valor en comun entre ellos
-    let minNum
-
+    
     for(let i=0; i<array1.length; i++){
         for(let j=0; j<array2.length; j++){
             if(array1[i]==array2[j]){
@@ -33,9 +32,7 @@ function numeroEnComun(array1, array2) {
         }
     }
 
-    let min1 = Math.min(...array1)
-    let min2 = Math.min(...array2)
-    minNum = Math.min(min1, min2)
+    let minNum = Math.min.apply(null, array1, array2)
     return minNum
 };
 
