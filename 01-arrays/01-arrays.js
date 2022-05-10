@@ -32,7 +32,7 @@ function numeroEnComun(array1, array2) {
         }
     }
 
-    let minNum = Math.min.apply(null, array1, array2)
+    let minNum = Math.min(Math.min(...array1), Math.min(...array2))
     return minNum
 };
 
