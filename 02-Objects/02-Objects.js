@@ -131,7 +131,7 @@ var countProps = function(obj) {
   for(const key in obj){
     counter++
     if(typeof obj[key] === 'object' && !Array.isArray(obj[key])){
-       counter = counter + countProps(obj[key])
+       counter += countProps(obj[key])
        }
   }
 
