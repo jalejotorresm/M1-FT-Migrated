@@ -5,15 +5,13 @@ const { parse, stringify } = require("flatted/cjs");
 // Este metodo deberia retornar la cantidad de elementos de la lista
 LinkedList.prototype.size = function () {
   // Tu código acá
-  function getCountRec(node) {
-    if (node == null) return 0
-    return 1 + getCountRec(node.next);
+  let current = this.head, 
+    count = 0;
+  while (current) {
+    count++;
+    current = current.next;
   }
-
-  function getCount() {
-    return getCountRec(head);
-  }
-
+  return count;
 };
 
 // Agregar el método orderList al prototipo de LinkedList. Este método deberá ordenar los elementos de nuestra lista enlazada de mayor a menor.
@@ -62,11 +60,11 @@ LinkedList.prototype.orderList = function () {
 // tomar el head como posicion 1
 
 LinkedList.prototype.insert = function (data, pos) {
-  if (index > 0 && index > this.size) {
+  if (pos > 0 && pos > this.size) {
     return;
   }
 
-  if (index === 0) {
+  if (pos === 0) {
     this.head = new Node(data, this.head);
     return;
   }
@@ -78,7 +76,7 @@ LinkedList.prototype.insert = function (data, pos) {
 
   current = this.head;
 
-  while (count < index) {
+  while (count < pos) {
     previous = current;
     count++;
     current = current.next;
