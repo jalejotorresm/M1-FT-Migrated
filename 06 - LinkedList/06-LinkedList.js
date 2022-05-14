@@ -26,7 +26,7 @@ LinkedList.prototype.orderList = function () {
     current = this.head;
 
   while (current) {
-    array.push(current.data);
+    array.push(current.value);
     current = current.next;
   }
 
@@ -43,12 +43,22 @@ LinkedList.prototype.orderList = function () {
     len++;
   }
 
+  array.reverse();
+
   this.head = null;
-  this.size = 0;
 
   for (let i = 0; i < array.length; i++) {
-    this.head = new Node(array[i], this.head);
-    this.size++;
+    let newNode = new Node(array[i]);
+
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      var tailActual = this.head;
+      while (tailActual.next !== null) {
+        tailActual = tailActual.next;
+      }
+      tailActual.next = newNode;
+    }
   }
 
   return this;
