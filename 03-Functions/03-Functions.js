@@ -7,7 +7,21 @@ function timeConversion(time) {
   // timeConversion("12:60") // false
   // timeConversion("09:00 PM") // "21:00"
   // tu codigo acá
+  var horas = parseInt(time.slice(0,2))
+  var minutos = parseInt(time.slice(3,5))
+  var segundos = parseInt(time.slice(6,8))
+  var formato = time.slice(8,10)
 
+  if(horas>12 || horas<0) return false
+  if(minutos>12 || minutos<0) return false
+  if(segundos>12 || segundos<0) return false
+
+  if(formato === 'PM' && horas<12){
+    horas = horas + 12
+  } else {
+    horas = '00'
+  }
+  return horas+':'+minutos+':'+segundos
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +94,9 @@ function arribaAbajo(n) {
 // - multBySix(4) --> 24
 
 var closureMult = function (multiplier) {
+  return function (number){
+    return number*multiplier
+  }
  
 };
 

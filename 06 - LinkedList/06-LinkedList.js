@@ -5,6 +5,14 @@ const { parse, stringify } = require("flatted/cjs");
 // Este metodo deberia retornar la cantidad de elementos de la lista
 LinkedList.prototype.size = function () {
   // Tu código acá
+  function getCountRec(node) {
+    if (node == null) return 0
+    return 1 + getCountRec(node.next);
+  }
+
+  function getCount() {
+      return getCountRec(head);
+  }
 
 };
 
