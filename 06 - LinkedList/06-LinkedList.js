@@ -11,7 +11,7 @@ LinkedList.prototype.size = function () {
   }
 
   function getCount() {
-      return getCountRec(head);
+    return getCountRec(head);
   }
 
 };
@@ -24,7 +24,36 @@ LinkedList.prototype.size = function () {
 // ACLARACIÓN: Se debe ordenar la lista original y no una nueva.
 LinkedList.prototype.orderList = function () {
   // Tu código aca:
-  
+  let array = [],
+    current = this.head;
+
+  while (current) {
+    array.push(current.data);
+    current = current.next;
+  }
+
+  var len = 0;
+
+  while (len < array.length - 1) {
+    let len1 = 0;
+    while (len1 < array.length - 1) {
+      if (array[len1] > array[len1 + 1]) {
+        [array[len1], array[len1 + 1]] = [array[len1 + 1], array[len1]];
+      }
+      len1++;
+    }
+    len++;
+  }
+
+  this.head = null;
+  this.size = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    this.head = new Node(array[i], this.head);
+    this.size++;
+  }
+
+  return this;
 };
 
 // agregar el metodo insert al prototipo de LinkedList.
@@ -33,7 +62,29 @@ LinkedList.prototype.orderList = function () {
 // tomar el head como posicion 1
 
 LinkedList.prototype.insert = function (data, pos) {
-  
+  if (index > 0 && index > this.size) {
+    return;
+  }
+
+  if (index === 0) {
+    this.head = new Node(data, this.head);
+    return;
+  }
+
+  const node = new Node(data);
+  let current,
+    previous,
+    count = 0;
+
+  current = this.head;
+
+  while (count < index) {
+    previous = current;
+    count++;
+    current = current.next;
+  }
+  node.next = current;
+  previous.next = node;
 };
 
 const miListitaEnlazada = new LinkedList();
@@ -74,7 +125,7 @@ console.log(stringify(miListitaEnlazada));
 
 LinkedList.prototype.changeNotNumbers = function () {
   // Tu código aca:
-  
+
 };
 
 
