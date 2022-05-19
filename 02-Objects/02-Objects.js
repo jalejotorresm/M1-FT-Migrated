@@ -154,7 +154,9 @@ var countProps = function(obj) {
 // parImpar(20)
 // "Par"
 
-let parImpar = () => {
+let parImpar = (num) => {
+  
+  
   switch(num){
     case 0:
       return "Par"

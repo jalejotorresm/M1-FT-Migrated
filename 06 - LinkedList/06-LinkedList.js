@@ -86,7 +86,7 @@ LinkedList.prototype.insert = function (data, pos) {
 
   current = this.head;
 
-  while (count < pos) {
+  while (cou knt < pos) {
     previous = current;
     count++;
     current = current.next;
